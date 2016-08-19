@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mobius Final Fantasy - Rental Card Tracker</title>
+    <!-- Pure CSS -->
+    <link href="pure-min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="header" class="pure-g">
+        <div class="pure-u-1-5"></div>
+        <div class="pure-u-3-5">
+            <h2>Mobius Final Fantasy</h2>  
+            <h1>Rental Card Tracker <small>for Global Players</small></h1>
+            <p>
+                Hello! This website tracks Mobius Final Fantasy's 
+                Player's Rental Cards. You may a) Enter your Rental 
+                Card and Player Id below, or b) Search for other 
+                player's Rental Cards. Click 
+                <a href="https://github.com/GaiusCoffee/MFFRentalTracker/issues">here</a>
+                 if you have any questions, suggestions or comments.
+            </p>
+            <p>
+                Special thanks to the <a href="https://reddit.com/r/mobiusff">MFF Reddit Community</a>! :D
+            </p>
+            <hr />
+            <form class="pure-form pure-form-aligned">
+                <fieldset>
+                    <div class="pure-control-group">
+                        <label for="playername">Player Name</label>
+                        <input id="playername" type="text" placeholder="GaiusCoffee">
+                        * Basis for editing other fields.
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label for="playerid">Player ID</label>
+                        <input id="playerid" type="text" placeholder="2028 1292 abd9">
+                        * Preferrably space seperated.
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label for="rentalcard">Rental Card</label>
+                        <input id="rentalcard" type="text" placeholder="Griffin">
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label for="cardrarity">Details</label>
+                        <select id="cardrarity">
+                            <option>3*</option>
+                            <option selected="selected">4*</option>
+                            <option>5*</option>
+                        </select>
+                        <select id="cardlevel">
+                            <option>Working on it</option>
+                            <option selected="selected">Ability Lv. MAX</option>
+                        </select>
+                        <select id="cardskills">
+                            <option>Working on it</option>
+                            <option selected="selected">All Skills Unlocked</option>
+                        </select>
+                    </div>
+
+                    <div class="pure-controls">
+                        <button class="pure-button pure-button-primary">Add/Edit Record</button>
+                        <button class="pure-button">Remove Record</button>
+                    </div>
+                </fieldset>
+            </form>
+            <hr/>
+            <form class="pure-form pure-form-aligned">
+                <fieldset>
+                    <div class="pure-control-group">
+                        <label for="rentalcardsearch">Rental Card</label>
+                        <input id="rentalcardsearch" type="text" placeholder="Griffin">
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label for="cardraritysearch">Details</label>
+                        <select id="cardraritysearch">
+                            <option>3*</option>
+                            <option>4*</option>
+                            <option>5*</option>
+                            <option selected="selected">Any</option>
+                        </select>
+                        <select id="cardlevelsearch">
+                            <option>Working on it</option>
+                            <option>Ability Lv. MAX</option>
+                            <option selected="selected">Any</option>
+                        </select>
+                        <select id="cardskillssearch">
+                            <option>Working on it</option>
+                            <option>All Skills Unlocked</option>
+                            <option selected="selected">Any</option>
+                        </select>
+                    </div>
+
+                    <div class="pure-controls">
+                        <button class="pure-button pure-button-primary">Search for Players</button>
+                    </div>
+                </fieldset>
+            </form>
+            <table id="results" class="pure-table">
+                <thead>
+                    <tr>
+                        <th>Player Name</th>
+                        <th>Player ID</th>
+                        <th>Rental Card</th>
+                        <th>Rarity</th>
+                        <th>Ability Lv</th>
+                        <th>Skills</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <br/>
+            <hr/>
+            <br/>
+            <sup style="float:right;"><a href="http://gaius.coffee">GaiusCoffee</a></sup>
+        </div>
+    </div>
+</body>
+</html>
