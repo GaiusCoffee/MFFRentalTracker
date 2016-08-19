@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mobius Final Fantasy - Rental Card Tracker</title>
-    <!-- Pure CSS -->
-    <link href="pure-min.css" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link href="css/pure-min.css" rel="stylesheet">
+    <link href="css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="js/firebase.js"></script>
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
 </head>
 <body>
     <div id="header" class="pure-g">
@@ -63,44 +68,13 @@
                     </div>
 
                     <div class="pure-controls">
-                        <button class="pure-button pure-button-primary">Add/Edit Record</button>
-                        <button class="pure-button">Remove Record</button>
+                        <button id="recordAddEdit" class="pure-button pure-button-primary">Add/Edit Record</button>
+                        <button id="recordRemove" class="pure-button">Remove Record</button>
                     </div>
                 </fieldset>
             </form>
             <hr/>
-            <form class="pure-form pure-form-aligned">
-                <fieldset>
-                    <div class="pure-control-group">
-                        <label for="rentalcardsearch">Rental Card</label>
-                        <input id="rentalcardsearch" type="text" placeholder="Griffin">
-                    </div>
-
-                    <div class="pure-control-group">
-                        <label for="cardraritysearch">Details</label>
-                        <select id="cardraritysearch">
-                            <option>3*</option>
-                            <option>4*</option>
-                            <option>5*</option>
-                            <option selected="selected">Any</option>
-                        </select>
-                        <select id="cardlevelsearch">
-                            <option>Working on it</option>
-                            <option>Ability Lv. MAX</option>
-                            <option selected="selected">Any</option>
-                        </select>
-                        <select id="cardskillssearch">
-                            <option>Working on it</option>
-                            <option>All Skills Unlocked</option>
-                            <option selected="selected">Any</option>
-                        </select>
-                    </div>
-
-                    <div class="pure-controls">
-                        <button class="pure-button pure-button-primary">Search for Players</button>
-                    </div>
-                </fieldset>
-            </form>
+            <br />
             <table id="results" class="pure-table">
                 <thead>
                     <tr>
@@ -121,5 +95,6 @@
             <sup style="float:right;"><a href="http://gaius.coffee">GaiusCoffee</a></sup>
         </div>
     </div>
+    <script src="js/index.js"></script>
 </body>
 </html>

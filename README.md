@@ -10,6 +10,10 @@ please click here: [Issue Tracker]().
 * v.0.1
   * PureCSS and Initial Site Design Done.
   * Uploaded to Github Pages
+* v.1.0
+  * Implement DataTables.net
+  * Implement Google Analytics & Google Firebase
+  * Use jQuery to link everything up
 
 ---
 
