@@ -31,12 +31,16 @@
                 Special thanks to the <a href="https://reddit.com/r/mobiusff">MFF Reddit Community</a>! :D
             </p>
             <hr />
-            <form class="pure-form pure-form-aligned">
+            <div id="login" style="text-align:center">
+                <button id="loginBtn" class="pure-button pure-button-primary">
+                    Click here to login via Facebook to Add/Edit/Remove your Rental Card!</button>
+            </div>
+            <form id="forms" class="pure-form pure-form-aligned">
                 <fieldset>
                     <div class="pure-control-group">
                         <label for="playername">Player Name</label>
                         <input id="playername" type="text" placeholder="GaiusCoffee">
-                        * Basis for editing other fields.
+                        * 1 Rental Card Record per Facebook Account.
                     </div>
 
                     <div class="pure-control-group">
@@ -70,6 +74,7 @@
                     <div class="pure-controls">
                         <button id="recordAddEdit" class="pure-button pure-button-primary">Add/Edit Record</button>
                         <button id="recordRemove" class="pure-button">Remove Record</button>
+                        <button id="logoutBtn" class="pure-button">Logout</button>
                     </div>
                 </fieldset>
             </form>

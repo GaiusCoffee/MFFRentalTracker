@@ -32,31 +32,64 @@ $(document).ready(function(){
             results.row.add(child.val()).draw();
         });
     });
+    // Show Login
+    $("#forms").hide();
+    $("#login").show();
+});
+$("#loginBtn").click(function(){
+    var provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        $("#forms").show();
+        $("#login").hide();        
+    }).catch(function(error) {
+        console.log(error);
+        alert("Login Failed :(");
+        $("#forms").hide();
+        $("#login").show();
+    });
+    return false;
+});
+$("#logoutBtn").click(function(){
+    firebase.auth().signOut().then(function() {
+        $("#forms").hide();
+        $("#login").show();
+    }, function(error) {
+        console.log(error);
+        alert("Logout Failed :(");
+        $("#forms").show();
+        $("#login").hide();
+    });
+    return false;
 });
 $("#recordAddEdit").click(function(){
-    var formData = validate();
-    if (formData.valid) {
-        alert(formData.valid);
-        return false;
+    var user = firebase.auth().currentUser;
+    if (user) {
+        var formData = validate();
+        if (formData.valid) {
+            alert(formData.valid);
+            return false;
+        };
+        firebase.database()
+            .ref('rentalCards/' + user.uid)
+            .set(formData);
+        alert("Rental Card Data Saved!");
+        reset();
     }
-	firebase.database()
-        .ref('rentalCards/' + formData.playername)
-        .set(formData);
-    alert("Rental Card Data Saved!");
-    reset();
     return false;
 });
 $("#recordRemove").click(function(){
-    var playerName = $("#playername").val().replace(/[^a-z0-9]/gi,'');
-    if (playerName.length < 4) {
-        alert("Player Name too short.");
-        return false;
+    var user = firebase.auth().currentUser;
+    if (user) {
+        if ($("#playername").val().length < 4) {
+            alert("Please verify your Player Name.");
+            return false;
+        }
+        firebase.database()
+            .ref('rentalCards/' + user.uid)
+            .set(null);
+        alert("Rental Card Data Removed!");
+        reset();
     }
-	firebase.database()
-        .ref('rentalCards/' + playerName)
-        .set(null);
-    alert("Rental Card Data Removed!");
-    reset();
     return false;
 });
 $("#playername").focusout(function(){

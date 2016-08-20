@@ -3,7 +3,7 @@
 # Rental Card Tracker Website
 
 For comments, corrections and suggestions, 
-please click here: [Issue Tracker](). 
+please click here: [Issue Tracker](https://github.com/GaiusCoffee/MFFRentalTracker/issues). 
 
 ### Changelog
 
@@ -14,6 +14,8 @@ please click here: [Issue Tracker]().
   * Implement DataTables.net
   * Implement Google Analytics & Google Firebase
   * Use jQuery to link everything up
+* v.1.1
+  * Implement Facebook Login
 
 ---
 
