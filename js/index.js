@@ -71,8 +71,13 @@ $("#recordAddEdit").click(function(){
         };
         firebase.database()
             .ref('rentalCards/' + user.uid)
-            .set(formData);
-        alert("Rental Card Data Saved!");
+            .set(formData)
+            .then(function(){
+                alert("Rental Card Data Saved!");
+            }, function(error){
+                console.log(error);
+                alert("Data Save Failed :(")
+            });
         reset();
     }
     return false;
@@ -86,8 +91,13 @@ $("#recordRemove").click(function(){
         }
         firebase.database()
             .ref('rentalCards/' + user.uid)
-            .set(null);
-        alert("Rental Card Data Removed!");
+            .set(null)
+            .then(function(){
+                alert("Rental Card Data Saved!");
+            }, function(error){
+                console.log(error);
+                alert("Data Removal Failed :(")
+            });
         reset();
     }
     return false;

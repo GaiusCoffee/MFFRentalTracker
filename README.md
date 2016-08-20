@@ -16,6 +16,8 @@ please click here: [Issue Tracker](https://github.com/GaiusCoffee/MFFRentalTrack
   * Use jQuery to link everything up
 * v.1.1
   * Implement Facebook Login
+* v.1.1.1
+  * Add error messages when data write fails.
 
 ---
 
