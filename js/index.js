@@ -35,22 +35,46 @@ $(document).ready(function(){
     // Show Login
     $("#forms").hide();
     $("#login").show();
+    $("#recordRemoveCancel").hide();
 });
-$("#loginBtn").click(function(){
-    var provider = new firebase.auth.FacebookAuthProvider();
+$("#loginBtnFacebook").click(function(){
+    auth(new firebase.auth.FacebookAuthProvider());
+    return false;
+});
+$("#loginBtnTwitter").click(function(){
+    auth(new firebase.auth.TwitterAuthProvider());
+    return false;
+});
+$("#loginBtnGoogle").click(function(){
+    auth(new firebase.auth.GoogleAuthProvider());
+    return false;
+});
+var auth = function fAuth(provider){
     firebase.auth().signInWithPopup(provider).then(function(result) {
+        reset();
+        firebase.database()
+            .ref('rentalCards/' + result.user.uid)
+            .once('value')
+            .then(function(snapshot) {
+                $("#playername").val(snapshot.val().playername);
+                $("#playerid").val(snapshot.val().playerid);
+                $("#rentalcard").val(snapshot.val().rentalcard);
+                $("#cardrarity").val(snapshot.val().cardrarity);
+                $("#cardlevel").val(snapshot.val().cardlevel);
+                $("#cardskills").val(snapshot.val().cardskills);
+            });
         $("#forms").show();
         $("#login").hide();        
     }).catch(function(error) {
         console.log(error);
-        alert("Login Failed :(");
+        alert("Login Failed :(\n\n" + error.message);
         $("#forms").hide();
         $("#login").show();
     });
-    return false;
-});
+};
 $("#logoutBtn").click(function(){
     firebase.auth().signOut().then(function() {
+        reset();
         $("#forms").hide();
         $("#login").show();
     }, function(error) {
@@ -78,17 +102,16 @@ $("#recordAddEdit").click(function(){
                 console.log(error);
                 alert("Data Save Failed :(")
             });
-        reset();
     }
     return false;
 });
 $("#recordRemove").click(function(){
+    if (!$("#recordRemoveCancel").is(":visible")) {
+        $("#recordRemoveCancel").show();
+        return false;
+    }
     var user = firebase.auth().currentUser;
     if (user) {
-        if ($("#playername").val().length < 4) {
-            alert("Please verify your Player Name.");
-            return false;
-        }
         firebase.database()
             .ref('rentalCards/' + user.uid)
             .set(null)
@@ -100,6 +123,11 @@ $("#recordRemove").click(function(){
             });
         reset();
     }
+    $("#recordRemoveCancel").hide();
+    return false;
+});
+$("#recordRemoveCancel").click(function(){
+    $("#recordRemoveCancel").hide();
     return false;
 });
 $("#playername").focusout(function(){

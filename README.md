@@ -18,8 +18,15 @@ please click here: [Issue Tracker](https://github.com/GaiusCoffee/MFFRentalTrack
   * Implement Facebook Login
 * v.1.1.1
   * Add error messages when data write fails.
+* v.1.2
+  * Automatically load data upon login
+  * Add remove record cancel button
+  * Implement Google Login
+  * Implement Twitter Login
 
 ---
+
+### Terms of Service / Privacy Policy / Disclaimer
 
 Any of the trademarks, service marks, collective marks, 
 design rights, personality rights, or similar rights 
