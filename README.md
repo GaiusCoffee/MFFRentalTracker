@@ -23,6 +23,8 @@ please click here: [Issue Tracker](https://github.com/GaiusCoffee/MFFRentalTrack
   * Add remove record cancel button
   * Implement Google Login
   * Implement Twitter Login
+* v.1.2.1
+  * Reduce player name length restriction to 2 characters
 
 ---
 

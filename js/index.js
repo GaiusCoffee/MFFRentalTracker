@@ -144,7 +144,7 @@ var validate = function fValidate(){
         fcardrarity = $("#cardrarity").val(),
         fcardlevel = $("#cardlevel").val(),
         fcardskills = $("#cardskills").val();
-    if (fplayername.length < 4) {
+    if (fplayername.length < 2) {
         isValid = "Player Name too short.";
     }
     if (fplayername.length > 24) {
