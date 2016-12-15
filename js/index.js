@@ -131,14 +131,14 @@ $("#recordRemoveCancel").click(function(){
     return false;
 });
 $("#playername").focusout(function(){
-    $("#playername").val($("#playername").val().replace(/[^a-z0-9]/gi,''));
+    $("#playername").val($("#playername").val().replace(/[^a-z0-9\]\[]/gi,''));
 });
 $("#rentalcard").focusout(function(){
     $("#rentalcard").val($("#rentalcard").val().replace(/[^a-z0-9]/gi,''));
 });
 var validate = function fValidate(){
     var isValid = "",
-        fplayername = $("#playername").val().replace(/[^a-z0-9]/gi,''),
+        fplayername = $("#playername").val().replace(/[^a-z0-9\]\[]/gi,''),
         fplayerid = $("#playerid").val(),
         frentalcard = $("#rentalcard").val().replace(/[^a-z0-9]/gi,''),
         fcardrarity = $("#cardrarity").val(),

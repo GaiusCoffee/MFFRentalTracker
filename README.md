@@ -25,6 +25,8 @@ please click here: [Issue Tracker](https://github.com/GaiusCoffee/MFFRentalTrack
   * Implement Twitter Login
 * v.1.2.1
   * Reduce player name length restriction to 2 characters
+* v.1.2.2
+  * Allow '[' and ']' characters in player name
 
 ---
 
